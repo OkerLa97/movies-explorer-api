@@ -21,7 +21,4 @@
 ## Ссылки на проект
 
 IP 158.160.70.62
-
-Frontend https://oker97.nomoredomains.rocks
-
 Backend https://api.oker97.nomoredomains.rocks
