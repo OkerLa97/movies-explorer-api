@@ -68,6 +68,8 @@ module.exports.deleteMovie = (req, res, next) => {
     .then((movie) => {
       if (!movie) {
         throw new ValidationError('Нет фильма с таким id');
+      } else if (movie.owner.toString() !== req.user._id) {
+        throw new ValidationError('Нельзя удалить чужой фильм');
       } else {
         res.send({ data: movie });
       }
