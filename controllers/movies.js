@@ -23,7 +23,7 @@ module.exports.createMove = (req, res, next) => {
     year,
     description,
     image,
-    trailer,
+    trailerLink,
     nameRU,
     nameEN,
     thumbnail,
@@ -37,7 +37,7 @@ module.exports.createMove = (req, res, next) => {
       year,
       description,
       image,
-      trailer,
+      trailerLink,
       nameRU,
       nameEN,
       thumbnail,
@@ -53,6 +53,7 @@ module.exports.createMove = (req, res, next) => {
       .catch(next);
   }).catch((err) => {
     if (err.name === 'ValidationError') {
+      console.log(err);
       const error = new ValidationError('Ошибка валидации');
       next(error);
       return;
@@ -63,7 +64,7 @@ module.exports.createMove = (req, res, next) => {
 };
 
 module.exports.deleteMovie = (req, res, next) => {
-  Movie.findByIdAndRemove(req.params.movieId)
+  Movie.findByIdAndRemove(req.params._id)
     .then((movie) => {
       if (!movie) {
         throw new ValidationError('Нет фильма с таким id');
