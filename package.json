@@ -1,0 +1,31 @@
+{
+  "name": "movies-explorer-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon app.js",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OkerLa97/movies-explorer-api.git"
+  },
+  "author": "Oker97",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/OkerLa97/movies-explorer-api/issues"
+  },
+  "homepage": "https://github.com/OkerLa97/movies-explorer-api#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "celebrate": "^15.0.1",
+    "dotenv": "^16.1.4",
+    "express": "^4.18.2",
+    "express-winston": "^4.2.0",
+    "jsonwebtoken": "^9.0.0",
+    "mongoose": "^7.2.4",
+    "validator": "^13.9.0",
+    "winston": "^3.9.0"
+  }
+}
