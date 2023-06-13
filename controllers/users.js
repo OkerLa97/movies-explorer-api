@@ -9,7 +9,7 @@ const { AUTH_SECRET } = require('../config');
 
 module.exports.createUser = (req, res, next) => {
   const {
-    email, password
+    email, password, name
   } = req.body;
 
   bcrypt.hash(password, 10)
