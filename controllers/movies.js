@@ -16,25 +16,50 @@ module.exports.getMyMovies = (req, res, next) => {
 };
 
 module.exports.createMove = (req, res, next) => {
-  const { country, director, duration, year, description, image, trailer, nameRU, nameEN, thumbnail, movieId } = req.body;
-  Movie.create({ country, director, duration, year, description, image, trailer, nameRU, nameEN, thumbnail, movieId, owner: req.user._id })
-    .then((movie) => {
-      Movie.findById(movie._id)
-        .populate(['owner'])
-        .then((movieData) => {
-          res.status(201).send({ data: movieData });
-        })
-        .catch(next);
-    })
-    .catch((err) => {
-      if (err.name === 'ValidationError') {
-        const error = new ValidationError('Ошибка валидации');
-        next(error);
-        return;
-      }
+  const {
+    country,
+    director,
+    duration,
+    year,
+    description,
+    image,
+    trailer,
+    nameRU,
+    nameEN,
+    thumbnail,
+    movieId,
+  } = req.body;
+  Movie.create(
+    {
+      country,
+      director,
+      duration,
+      year,
+      description,
+      image,
+      trailer,
+      nameRU,
+      nameEN,
+      thumbnail,
+      movieId,
+      owner: req.user._id,
+    },
+  ).then((movie) => {
+    Movie.findById(movie._id)
+      .populate(['owner'])
+      .then((movieData) => {
+        res.status(201).send({ data: movieData });
+      })
+      .catch(next);
+  }).catch((err) => {
+    if (err.name === 'ValidationError') {
+      const error = new ValidationError('Ошибка валидации');
+      next(error);
+      return;
+    }
 
-      next(err);
-    });
+    next(err);
+  });
 };
 
 module.exports.deleteMovie = (req, res, next) => {
@@ -55,4 +80,4 @@ module.exports.deleteMovie = (req, res, next) => {
 
       next(err);
     });
-}
+};

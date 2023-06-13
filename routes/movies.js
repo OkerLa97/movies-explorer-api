@@ -1,7 +1,7 @@
 const { celebrate, Joi } = require('celebrate');
 const router = require('express').Router();
 const {
-  getMyMovies, createMove
+  getMyMovies, createMove,
 } = require('../controllers/movies');
 const { URL_VALIDATION_REGEX } = require('../config');
 
@@ -13,7 +13,6 @@ router.get('/', celebrate({
 }), getMyMovies);
 
 // createMovie
-//country, director, duration, year, description, image, trailer, nameRU, nameEN, thumbnail
 router.post('/', celebrate({
   headers: Joi.object().keys({
     authorization: Joi.string().required(),

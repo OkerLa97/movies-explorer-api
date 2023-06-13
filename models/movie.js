@@ -2,35 +2,29 @@ const mongoose = require('mongoose');
 const validator = require('validator');
 
 const movieSchema = new mongoose.Schema({
-  country : {
+  country: {
     type: String,
     required: true,
     minlength: 2,
     maxlength: 30,
   },
-  country : {
-    type: String,
-    required: true,
-    minlength: 2,
-    maxlength: 30,
-  },
-  duration : {
+  duration: {
     type: Number,
     required: true,
   },
-  year : {
+  year: {
     type: String,
     required: true,
     minlength: 2,
     maxlength: 30,
   },
-  description : {
+  description: {
     type: String,
     required: true,
     minlength: 2,
     maxlength: 10000,
   },
-  image : {
+  image: {
     type: String,
     required: true,
     validate: {
@@ -38,7 +32,7 @@ const movieSchema = new mongoose.Schema({
       message: 'Невалидная ссылка',
     },
   },
-  trailerLink : {
+  trailerLink: {
     type: String,
     required: true,
     validate: {
@@ -46,7 +40,7 @@ const movieSchema = new mongoose.Schema({
       message: 'Невалидная ссылка',
     },
   },
-  thumbnail : {
+  thumbnail: {
     type: String,
     required: true,
     validate: {
@@ -63,13 +57,13 @@ const movieSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
-  nameRU : {
+  nameRU: {
     type: String,
     required: true,
     minlength: 2,
     maxlength: 30,
   },
-  nameEN : {
+  nameEN: {
     type: String,
     required: true,
     minlength: 2,

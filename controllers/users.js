@@ -9,7 +9,7 @@ const { AUTH_SECRET } = require('../config');
 
 module.exports.createUser = (req, res, next) => {
   const {
-    email, password, name
+    email, password, name,
   } = req.body;
 
   bcrypt.hash(password, 10)
@@ -20,7 +20,7 @@ module.exports.createUser = (req, res, next) => {
     }))
     .then((user) => res.status(201).send({
       data: {
-        email: user.email, name: user.name
+        email: user.email, name: user.name,
       },
     }))
     .catch((err) => {
