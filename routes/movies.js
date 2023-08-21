@@ -18,8 +18,8 @@ router.post('/', celebrate({
     authorization: Joi.string().required(),
   }).unknown(true),
   body: Joi.object().keys({
-    country: Joi.string().required().min(2).max(30),
-    director: Joi.string().required().min(2).max(30),
+    country: Joi.string().required().min(2).max(100),
+    director: Joi.string().required().min(2).max(100),
     year: Joi.string().required().min(2).max(30),
     description: Joi.string().required().min(2).max(10000),
     image: Joi.string().required()
